@@ -1,50 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="description" content="Projeto Portfólio">
+    <meta name="author" content="Juliana Freddi">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <link rel="icon" type="image/svg" href="./assets/img/favicon.svg" />
+
+    <title>Meu Perfil</title>
 </head>
+
 <body>
-    <ul>
-        <li>
-            <a href="index.html"> Home </a>
-        </li>
-        <li>
-            <a href="contato.html"> Contato </a>
-        </li>
+    <!-- Cabeçalho -->
+    <header>
+        <div id="header_content">
+            <div id="titulo">
+                <h1>Portfolio da Juliana Freddi</h1>
 
-    </ul>
+            </div>
 
+            <div id="menu">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html"> Home </a>
+                        </li>
+                        <li>
+                            <a href="contato.html"> Contato </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
+        </div>
 
-    <h1>Sobre a Juliana</h1>
-    <h2> Lado profissional</h2>
+    </header>
 
-    <p>
-        Desenvolvedora de Software com sólida base em desenvolvimento Full Stack utilizando React, Node.js, 
-TypeScript e SQL. No dia a dia, aplico metodologias ágeis como Scrum e Kanban e utilizo ferramentas 
-como Git para o versionamento de código. Combino essas habilidades técnicas com experiência prévia em 
-gestão de projetos, trabalho em equipe e liderança, possuindo um perfil analítico e colaborativo, focado em 
-traduzir necessidades de negócio em soluções eficientes e de alta qualidade.
-    </p>
+    <!-- Seção Principal (menu) -->
+    <main>
+        <section id="sobre">
+            <h2> Sobre mim</h2>
+            <div id="conteudo">
+                <img src="assets/img/Ilustracao.png" alt="Minha foto">
+                <article id="sobre_texto">
+                    <p>
+                        Desenvolvedora de Software com sólida base em desenvolvimento Full Stack utilizando React,
+                        Node.js,
+                        TypeScript e SQL. No dia a dia, aplico metodologias ágeis como Scrum e Kanban e utilizo
+                        ferramentas
+                        como Git para o versionamento de código.
+                    </p>
+                    <p>
+                        Combino essas habilidades técnicas com experiência prévia em
+                        gestão de projetos, trabalho em equipe e liderança, possuindo um perfil analítico e
+                        colaborativo, focado em
+                        traduzir necessidades de negócio em soluções eficientes e de alta qualidade.
+                    </p>
+                </article>
+            </div>
+        </section>
 
-    <img src="assets/img/Ilustracao.png" alt="Minha foto">
+        <section id="video">
+            <h2>Meu vídeo favorito</h2>
 
-    <h2>Meu vídeo favorito</h2>
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/R2AAukCydjM?si=6axx6MLGABQMlPS8"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
 
-    <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/WZIGwN-5Ioo?si=3U6mnc-z8jFFs2IN" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen
-    ></iframe>
+    </main>
 
+    <!-- Rodapé -->
+    <footer>
 
+        <section id="redes_sociais">
+
+            <a href="">
+                <img src="assets/img/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="">
+                <img src="assets/img/github.svg" alt="Github" />
+            </a>
+            <a href="">
+                <img src="assets/img/instagram.svg" alt="Instagram" />
+            </a>
+
+        </section>
+
+        <h3>
+            Feito com 🧡 por Juliana Freddi - 2025
+        </h3>
+
+    </footer>
 
 </body>
+
 </html>
