@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico Interativo: Fundamentos de CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+        .section-title {
+            color: #0056b3; /* Um azul mais vibrante para títulos */
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .subsection-title {
+            color: #007bff; /* Um azul padrão para subtítulos */
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            white-space: pre-wrap; /* Permite quebra de linha em blocos de código */
+            word-break: break-all; /* Quebra palavras longas */
+        }
+        .highlight {
+            background-color: #d4edda; /* Cor de destaque para exemplos */
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-[#0056b3] text-white p-6 text-center sticky top-0 z-50 shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold">Fundamentos de CSS: Guia Visual</h1>
+        <p class="mt-2 text-lg text-gray-200">Consolide seus estudos de CSS de forma didática e interativa.</p>
+    </header>
+
+    <nav class="bg-gray-100 py-4 shadow-sm sticky top-[96px] z-40">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-700 font-medium">
+                <li><a href="#intro" class="nav-link hover:text-[#007bff]">Introdução</a></li>
+                <li><a href="#selectors" class="nav-link hover:text-[#007bff]">Seletores</a></li>
+                <li><a href="#units" class="nav-link hover:text-[#007bff]">Unidades</a></li>
+                <li><a href="#colors" class="nav-link hover:text-[#007bff]">Cores</a></li>
+                <li><a href="#variables" class="nav-link hover:text-[#007bff]">Variáveis</a></li>
+                <li><a href="#typography" class="nav-link hover:text-[#007bff]">Tipografia</a></li>
+                <li><a href="#box-model" class="nav-link hover:text-[#007bff]">Box Model</a></li>
+                <li><a href="#flexbox" class="nav-link hover:text-[#007bff]">Flexbox</a></li>
+                <li><a href="#grid" class="nav-link hover:text-[#007bff]">Grid</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="section-card">
+            <h2 class="section-title">1. Introdução ao CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                O <span class="highlight">CSS (Cascading Style Sheets)</span> é a linguagem que dá vida e estilo aos seus documentos HTML. Ele define como os elementos da página devem ser apresentados no navegador.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Anatomia de uma Regra CSS</h3>
+                    <p class="text-gray-700 mb-2">Cada regra CSS é composta por:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Seletor:</strong> Identifica o(s) elemento(s) HTML a serem estilizados.</li>
+                        <li><strong class="text-[#007bff]">Bloco de Declaração:</strong> Contém uma ou mais declarações.</li>
+                        <li><strong class="text-[#007bff]">Declaração:</strong> Par de propriedade e valor (ex: <span class="highlight">font-size: 20px;</span>).</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre><code class="language-css">p { /* Seletor */
+    color: blue; /* Declaração: propriedade: valor; */
+    font-size: 16px;
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Como Adicionar CSS ao HTML</h3>
+                    <p class="text-gray-700 mb-2">Três formas principais de vincular CSS à sua página:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Tag &lt;link&gt; (Recomendado):</strong> Vincula um arquivo CSS externo. Ideal para projetos maiores e organização.
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Tag &lt;style&gt;:</strong> CSS diretamente dentro do &lt;head&gt; do HTML. Bom para estilos específicos de uma única página.
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;style&gt;
+    h1 { color: green; }
+&lt;/style&gt;</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Estilos Embutidos:</strong> CSS direto no atributo <span class="highlight">style</span> de uma tag HTML. Para estilos muito específicos e pontuais.
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;p style="color: purple;"&gt;Texto roxo.&lt;/p&gt;</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="selectors" class="section-card">
+            <h2 class="section-title">2. Seletores Básicos do CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Seletores são a chave para aplicar estilos. Eles "selecionam" os elementos HTML que você deseja estilizar.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="subsection-title">Tipos de Seletores</h3>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li><strong class="text-[#007bff]">Seletor de Elemento:</strong> Aplica a todas as instâncias de uma tag HTML.
+                            <div class="code-block">
+                                <pre><code class="language-css">p { /* Seleciona todas as tags &lt;p&gt; */
+    line-height: 1.5;
+}</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Seletor de ID (#):</strong> Para um único elemento (ID deve ser único).
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div id="cabecalho"&gt;...&lt;/div&gt;</code></pre>
+                                <pre><code class="language-css">#cabecalho { /* Seleciona o elemento com id="cabecalho" */
+    background-color: #f8f8f8;
+}</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Seletor de Classe (.):</strong> Para múltiplos elementos que compartilham a mesma classe.
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;p class="destaque"&gt;...&lt;/p&gt;
+&lt;span class="destaque"&gt;...&lt;/span&gt;</code></pre>
+                                <pre><code class="language-css">.destaque { /* Seleciona elementos com class="destaque" */
+    font-weight: bold;
+}</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Seletor Universal (*):</strong> Seleciona todos os elementos HTML. Usado para "resetar" estilos padrão.
+                            <div class="code-block">
+                                <pre><code class="language-css">* { /* Aplica a todos os elementos */
+    margin: 0;
+    padding: 0;
+}</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Agrupamento de Seletores</h3>
+                    <p class="text-gray-700 mb-2">Aplique as mesmas regras a múltiplos seletores separando-os por vírgula.</p>
+                    <div class="code-block">
+                        <pre><code class="language-css">h1, h2, p { /* Estiliza h1, h2 e p */
+    font-family: sans-serif;
+    color: #333;
+}</code></pre>
+                    </div>
+                    <h3 class="subsection-title">Combinações (Exemplos Comuns)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Descendente:</strong> <span class="highlight">div p</span> (seleciona &lt;p&gt; dentro de &lt;div&gt;)</li>
+                        <li><strong class="text-[#007bff]">Filho Direto:</strong> <span class="highlight">ul > li</span> (seleciona &lt;li&gt; que são filhos diretos de &lt;ul&gt;)</li>
+                        <li><strong class="text-[#007bff]">Irmão Adjacente:</strong> <span class="highlight">h1 + p</span> (seleciona &lt;p&gt; que vem imediatamente após &lt;h1&gt;)</li>
+                        <li><strong class="text-[#007bff]">Irmão Geral:</strong> <span class="highlight">h1 ~ p</span> (seleciona &lt;p&gt; que são irmãos de &lt;h1&gt; e vêm depois)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="units" class="section-card">
+            <h2 class="section-title">3. Unidades de Medida CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                As unidades de medida são essenciais para criar designs responsivos que se adaptam a diferentes tamanhos de tela.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="subsection-title">Unidades Absolutas (Fixas)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">px (pixel):</strong> Unidade fixa, relativa à resolução do dispositivo. 1px = 1/96 de uma polegada.
+                            <div class="code-block">
+                                <pre><code class="language-css">.elemento { width: 150px; }</code></pre>
+                            </div>
+                        </li>
+                        <li>Outras (menos comuns para web): <span class="highlight">cm, mm, in (polegadas), pt (pontos), pc (picas)</span>.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Unidades Relativas (Flexíveis)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">em:</strong> Relativa ao <span class="highlight">tamanho da fonte do elemento pai</span> mais próximo.
+                            <div class="code-block">
+                                <pre><code class="language-css">.pai { font-size: 16px; }
+.filho { font-size: 1.2em; /* 1.2 * 16px = 19.2px */ }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">rem (Root EM):</strong> Relativa ao <span class="highlight">tamanho da fonte do elemento raiz (<html>)</span>. Garante consistência e escalabilidade.
+                            <div class="code-block">
+                                <pre><code class="language-css">html { font-size: 16px; }
+h1 { font-size: 2.5rem; /* 2.5 * 16px = 40px */ }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Percentual (%):</strong> Relativa a uma dimensão do elemento pai.
+                            <div class="code-block">
+                                <pre><code class="language-css">.container { width: 800px; }
+.item { width: 50%; /* 50% de 800px = 400px */ }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">vh (viewport height):</strong> 1% da altura da viewport.</li>
+                        <li><strong class="text-[#007bff]">vw (viewport width):</strong> 1% da largura da viewport.
+                            <div class="code-block">
+                                <pre><code class="language-css">.hero { height: 100vh; /* Ocupa 100% da altura da tela */ }
+.titulo { font-size: 5vw; /* 5% da largura da tela */ }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">vmin:</strong> 1% da menor dimensão da viewport (altura ou largura).</li>
+                        <li><strong class="text-[#007bff]">vmax:</strong> 1% da maior dimensão da viewport (altura ou largura).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="colors" class="section-card">
+            <h2 class="section-title">4. Cores no CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                A escolha de cores vai além da estética; é uma decisão estratégica baseada na Teoria das Cores.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Teoria das Cores Aplicada ao Design</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Psicologia das Cores:</strong> Como cada cor evoca emoções (ex: azul = confiança, vermelho = energia).</li>
+                        <li><strong class="text-[#007bff]">Equilíbrio:</strong> Use uma paleta limitada (3-5 cores). Regra 60-30-10: 60% cor dominante, 30% secundária, 10% de destaque.</li>
+                        <li><strong class="text-[#007bff]">Acessibilidade:</strong> Garanta bom contraste entre texto e fundo para legibilidade, especialmente para pessoas com deficiência visual.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Formas de Implementar Cores no CSS</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Nomes:</strong> Simples e legível para cores básicas.
+                            <div class="code-block">
+                                <pre><code class="language-css">color: red;
+background-color: blue;</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">RGB/RGBA:</strong> Define cores usando os valores de Vermelho, Verde e Azul (0-255). RGBA adiciona um canal Alfa para transparência (0-1).
+                            <div class="code-block">
+                                <pre><code class="language-css">color: rgb(255, 0, 0); /* Vermelho puro */
+background-color: rgba(0, 128, 0, 0.5); /* Verde com 50% de transparência */</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Hexadecimal (#):</strong> O formato mais comum, usando 6 dígitos hexadecimais (0-F) para representar RGB (ex: #RRGGBB).
+                            <div class="code-block">
+                                <pre><code class="language-css">color: #FF0000; /* Vermelho puro */
+background-color: #3366FF; /* Um tom de azul */</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">HSL/HSLA:</strong> Define cores usando Hue (matiz), Saturation (saturação) e Lightness (luminosidade). HSLA também adiciona o canal Alfa.
+                            <div class="code-block">
+                                <pre><code class="language-css">color: hsl(0, 100%, 50%); /* Vermelho puro */
+background-color: hsla(120, 100%, 50%, 0.7); /* Verde com 70% de opacidade */</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3 class="subsection-title">Propriedades Principais</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><span class="highlight">color:</span> Para a cor do texto.</li>
+                        <li><span class="highlight">background-color:</span> Para a cor de fundo de um elemento.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="variables" class="section-card">
+            <h2 class="section-title">5. Variáveis CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                As Variáveis CSS (ou Propriedades Customizadas) permitem armazenar valores reutilizáveis, tornando o código mais limpo, fácil de manter e flexível.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Declaração de Variáveis</h3>
+                    <p class="text-gray-700 mb-2">
+                        Geralmente declaradas no seletor <span class="highlight">:root</span> para serem acessíveis globalmente. O nome da variável deve começar com dois traços (<span class="highlight">--</span>).
+                    </p>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --cor-principal: #007bff;
+    --espacamento-padrao: 16px;
+    --fonte-titulo: 'Inter', sans-serif;
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Uso de Variáveis</h3>
+                    <p class="text-gray-700 mb-2">
+                        Para aplicar o valor de uma variável, utilize a função <span class="highlight">var()</span>.
+                    </p>
+                    <div class="code-block">
+                        <pre><code class="language-css">body {
+    font-family: var(--fonte-titulo);
+    background-color: #f0f4f8;
+}
+
+.botao {
+    background-color: var(--cor-principal);
+    padding: var(--espacamento-padrao);
+    color: white;
+    border-radius: 8px;
+}</code></pre>
+                    </div>
+                    <p class="text-gray-700 mt-4">
+                        <strong class="text-[#007bff]">Benefícios:</strong> Manutenção simplificada (mude um valor em um só lugar), melhor legibilidade e consistência no design.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography" class="section-card">
+            <h2 class="section-title">6. Tipografia no CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                A tipografia é a arte de estilizar o texto. A escolha e o uso corretos das fontes são cruciais para a legibilidade e a estética do seu site.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Propriedades Essenciais</h3>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li><strong class="text-[#007bff]">font-family:</strong> Define a fonte. Use uma lista de "fallback" para compatibilidade.
+                            <div class="code-block">
+                                <pre><code class="language-css">body {
+    font-family: 'Roboto', Arial, sans-serif;
+}</code></pre>
+                                <p class="text-sm text-gray-600 mt-1">Fontes podem ser "Web Safe" (padrão do sistema) ou importadas (ex: Google Fonts).</p>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">font-weight:</strong> Controla a espessura do texto.
+                            <div class="code-block">
+                                <pre><code class="language-css">h1 { font-weight: bold; } /* ou 700 */
+p { font-weight: 400; } /* Normal */</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li><strong class="text-[#007bff]">font-style:</strong> Aplica estilos como itálico.
+                            <div class="code-block">
+                                <pre><code class="language-css">em { font-style: italic; }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">font-size:</strong> Define o tamanho do texto (use unidades relativas como <span class="highlight">rem</span> ou <span class="highlight">em</span> para responsividade).
+                            <div class="code-block">
+                                <pre><code class="language-css">p { font-size: 1rem; }
+h2 { font-size: 2em; }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">line-height:</strong> Espaçamento entre linhas.</li>
+                        <li><strong class="text-[#007bff]">text-align:</strong> Alinhamento do texto (<span class="highlight">left, right, center, justify</span>).</li>
+                        <li><strong class="text-[#007bff]">text-decoration:</strong> Adiciona ou remove decorações (ex: <span class="highlight">underline, none</span>).</li>
+                        <li><strong class="text-[#007bff]">text-transform:</strong> Transforma o texto (<span class="highlight">uppercase, lowercase, capitalize</span>).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="box-model" class="section-card">
+            <h2 class="section-title">7. O Box Model do CSS</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                No CSS, todo elemento HTML é tratado como uma caixa retangular. O Box Model descreve a composição dessa caixa em quatro camadas concêntricas.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="subsection-title">As Quatro Camadas</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Conteúdo (Content):</strong> A área onde o texto, imagens ou outros elementos aparecem.</li>
+                        <li><strong class="text-[#007bff]">Padding (Preenchimento):</strong> O espaço interno entre o conteúdo e a borda. Adiciona "respiro" ao elemento.
+                            <div class="code-block">
+                                <pre><code class="language-css">.caixa { padding: 20px; }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Border (Borda):</strong> Uma linha que envolve o padding e o conteúdo.
+                            <div class="code-block">
+                                <pre><code class="language-css">.caixa { border: 2px solid #ccc; }</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Margin (Margem):</strong> O espaço externo, que separa o elemento de outros elementos vizinhos.
+                            <div class="code-block">
+                                <pre><code class="language-css">.caixa { margin: 10px; }</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">box-sizing: border-box; (Fundamental!)</h3>
+                    <p class="text-gray-700 mb-2">
+                        Por padrão, a largura e altura de um elemento incluem apenas o conteúdo. Com <span class="highlight">box-sizing: border-box;</span>, o padding e a border são incluídos na largura e altura totais, tornando os layouts muito mais previsíveis e fáceis de trabalhar.
+                    </p>
+                    <div class="code-block">
+                        <pre><code class="language-css">/* Geralmente aplicado globalmente */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}</code></pre>
+                    </div>
+                    <p class="text-gray-700 mt-4">
+                        <strong class="text-[#007bff]">Visualização:</strong> Imagine uma cebola, onde cada camada é uma parte do Box Model.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="flexbox" class="section-card">
+            <h2 class="section-title">8. CSS Flexbox</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                O <span class="highlight">Flexbox (Flexible Box Layout)</span> é um modelo de layout <strong class="text-[#007bff]">unidimensional (1D)</strong>. É perfeito para alinhar e distribuir espaço entre itens em uma única linha ou coluna.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Ativação e Eixos</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Ativação:</strong> Aplique <span class="highlight">display: flex;</span> a um elemento pai (o contêiner flex).</li>
+                        <li><strong class="text-[#007bff]">Eixos:</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li><span class="highlight">Main Axis (Eixo Principal):</span> A direção em que os itens flex se organizam (horizontal por padrão).</li>
+                                <li><span class="highlight">Cross Axis (Eixo Transversal):</span> Perpendicular ao eixo principal.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="code-block">
+                        <pre><code class="language-css">.container-flex {
+    display: flex;
+    /* Itens se organizarão em linha por padrão */
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Principais Propriedades (do Contêiner)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">flex-direction:</strong> Define a direção dos itens (<span class="highlight">row, column, row-reverse, column-reverse</span>).
+                            <div class="code-block">
+                                <pre><code class="language-css">flex-direction: column;</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">justify-content:</strong> Alinha os itens ao longo do <span class="highlight">eixo principal</span>.
+                            <div class="code-block">
+                                <pre><code class="language-css">justify-content: center; /* Centraliza */
+justify-content: space-between; /* Espaço entre itens */</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">align-items:</strong> Alinha os itens ao longo do <span class="highlight">eixo transversal</span>.
+                            <div class="code-block">
+                                <pre><code class="language-css">align-items: center; /* Centraliza verticalmente (se direction: row) */</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">flex-wrap:</strong> Permite que os itens quebrem para a próxima linha (<span class="highlight">wrap</span>) se não houver espaço.
+                            <div class="code-block">
+                                <pre><code class="language-css">flex-wrap: wrap;</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid" class="section-card">
+            <h2 class="section-title">9. CSS Grid Layout</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                O <span class="highlight">CSS Grid Layout</span> é um modelo <strong class="text-[#007bff]">bidimensional (2D)</strong>, ideal para organizar elementos em linhas e colunas simultaneamente, perfeito para layouts de página complexos.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="subsection-title">Ativação e Estrutura</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Ativação:</strong> Aplique <span class="highlight">display: grid;</span> a um elemento pai (o contêiner grid).</li>
+                        <li><strong class="text-[#007bff]">Definindo a Grade:</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li><span class="highlight">grid-template-columns:</span> Controla o número e o tamanho das colunas.</li>
+                                <li><span class="highlight">grid-template-rows:</span> Controla o número e o tamanho das linhas.</li>
+                            </ul>
+                            <div class="code-block">
+                                <pre><code class="language-css">.container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Três colunas de tamanhos iguais */
+    grid-template-rows: auto 100px; /* Primeira linha auto, segunda com 100px */
+}</code></pre>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1">A unidade <span class="highlight">fr (fração)</span> é muito usada para distribuir o espaço disponível.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Espaçamento e Posicionamento</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">gap:</strong> Cria espaçamento entre as células da grade.
+                            <div class="code-block">
+                                <pre><code class="language-css">gap: 20px; /* Espaçamento de 20px entre linhas e colunas */
+row-gap: 10px; /* Apenas entre linhas */
+column-gap: 15px; /* Apenas entre colunas */</code></pre>
+                            </div>
+                        </li>
+                        <li><strong class="text-[#007bff]">Posicionamento de Itens:</strong> Use <span class="highlight">grid-column</span> e <span class="highlight">grid-row</span> para posicionar itens específicos na grade.
+                            <div class="code-block">
+                                <pre><code class="language-css">.item-1 {
+    grid-column: 1 / 3; /* Ocupa da coluna 1 até a 3 (ou seja, 2 colunas) */
+    grid-row: 1;
+}</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3 class="subsection-title">Grid vs. Flexbox</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong class="text-[#007bff]">Grid:</strong> Para o layout geral da página (2D - linhas E colunas).</li>
+                        <li><strong class="text-[#007bff]">Flexbox:</strong> Melhor para alinhar componentes e conteúdos internos (1D - linha OU coluna).</li>
+                        <li><strong class="text-[#007bff]">Juntos:</strong> Eles se complementam! Use Grid para o layout principal e Flexbox dentro das células do Grid para alinhar conteúdos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#0056b3] text-white text-center p-8 mt-12">
+        <p class="text-lg">&copy; 2025 Infográfico Interativo de CSS. Todos os direitos reservados.</p>
+        <p class="mt-2 text-gray-300">Desenvolvido para auxiliar seus estudos em CSS.</p>
+    </footer>
+
+</body>
+</html>
