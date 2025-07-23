@@ -9,9 +9,6 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <title>Meu Perfil</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -48,21 +45,28 @@
         <section id="contato">
 
             <form action="#" method="submit" id="formulario">
-                <label for="nome">Nome: </label>
-                <input id="name" type="text" name="name" placeholder="Digite seu nome" required />
-                <span id="txtNome"></span>
+                <div class="campo_form">
+                    <label for="name">Nome: </label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" />
+                    <span id="txtNome"></span>
+                </div>
 
-                <label for="email">Email: </label>
-                <input id="email" type="email" name="email" placeholder="Digite seu email" required />
-                <span id="txtEmail"></span>
-
-                <label for="subject">Assunto: </label>
-                <input id="subject" type="text" name="subject" placeholder="Digite o título da mensagem" required />
-                <span id="txtSubject"></span>
-
-                <label for="message">Mensagem: </label>
-                <textarea id="message" name="message" placeholder="Digite sua mensagem" required>
-					</textarea>
+                <div class="campo_form">
+                    <label for="email">E-mail: </label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" />
+                    <span id="txtEmail"></span>
+                </div>
+                <div class="campo_form">
+                    <label for="subject">Assunto: </label>
+                    <input type="text" id="subject" name="subject" placeholder="Digite o título da mensagem" />
+                    <span id="txtAssunto"></span>
+                </div>
+                <div class="campo_form">
+                    <label for="message">Mensagem: </label>
+                    <textarea name="message" id="message" placeholder="Digite sua mensagem" rows="4"
+                        onkeyup="countMessage()"></textarea>
+                    <span id="txtMessage"></span>
+                </div>
 
                 <button type="submit">Enviar</button>
             </form>
@@ -82,9 +86,8 @@
 
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.6210282464062!2d-46.651900316810284!3d-23.569618624116323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59be78297e9d%3A0x1ddbc80110fcff47!2sAv.%20Paulista%2C%20299%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-000!5e1!3m2!1spt-BR!2sbr!4v1753053133982!5m2!1spt-BR!2sbr"
-                    width="400" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" ></iframe>
 
             </article>
 
