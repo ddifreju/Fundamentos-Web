@@ -159,7 +159,7 @@ footer {
 
 /*Página de Contato -- VERIFICAR #CONTACT*/
 
-#contact {
+#contato {
     flex-direction: row;
     gap: 2rem;
 }
