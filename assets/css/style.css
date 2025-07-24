@@ -5,8 +5,8 @@
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: "Roboto";
     vertical-align: baseline;
+     box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -70,7 +70,8 @@ body {
     background: var(--blue-400);
     background-image: url('../img/image.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     color: var(--white);
     font-family: "Roboto", sans-serif;
 }
@@ -238,8 +239,9 @@ footer h3 {
     margin: 0 auto;
     display: flex;
     min-height: 80vh;
-    align-items: center;
-    gap: 6rem;
+    align-items: flex-start;
+    gap: 4rem;
+    
 }
 
 #formulario {
@@ -339,8 +341,11 @@ footer h3 {
         text-align: center;
     }
 
-    #contact {
+    #contato {
         flex-direction: column;
+        width: 90vw;
+        gap: 2rem;
+        align-items: center;
     }
 
     /* fazer o mapa sumir */
