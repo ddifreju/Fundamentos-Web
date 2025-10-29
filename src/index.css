@@ -1,0 +1,45 @@
+/* src/index.css
+
+/* @import "tailwindcss"; */
+
+/*
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  background-image: url('https://ik.imagekit.io/logoempregadev/Fundo%20site.png?updatedAt=1759104914726');
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+  background-color: #1a1a2e;
+  /* color: #e2e8f0; 
+}
+
+/* AJUSTE PARA A PAGINAÇÃO DO SWIPER */
+/* Move as "bolinhas" de navegação para baixo do carrossel
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem;
+}
+ */
+
+
+ /* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: url('https://ik.imagekit.io/logoempregadev/Fundo%20site.png?updatedAt=1759104914726');
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+  background-color: #1a1a2e;
+}
+
+/* AJUSTE PARA A PAGINAÇÃO DO SWIPER */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem;
+}
