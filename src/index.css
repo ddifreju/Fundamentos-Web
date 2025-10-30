@@ -1,0 +1,92 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fundo com “nuvens” em tons baby pink/blue */
+body {
+  font-family: 'Poppins', sans-serif;
+  background:
+    radial-gradient(1200px 600px at -10% 10%, #FFEFF7 0%, rgba(255, 239, 247, 0) 60%),
+    radial-gradient(900px 500px at 110% 0%, #EAF6FF 0%, rgba(234, 246, 255, 0) 65%),
+    radial-gradient(700px 400px at 20% 80%, #FFD6E8 0%, rgba(255, 214, 232, 0) 60%),
+    radial-gradient(800px 500px at 85% 85%, #C7EEFF 0%, rgba(199, 238, 255, 0) 60%),
+    linear-gradient(180deg, #F7FBFF 0%, #EAF6FF 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  animation: clouds 18s ease-in-out infinite alternate;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Movimento sutil das “nuvens” */
+@keyframes clouds {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      0% 100%,
+      100% 100%,
+      50% 50%;
+  }
+  100% {
+    background-position:
+      10% 5%,
+      90% 3%,
+      5% 95%,
+      95% 92%,
+      50% 52%;
+  }
+}
+/* Animação de gradiente para elementos específicos */
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFEEF5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFD6E8, #B8A7D9);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #B8A7D9, #FFD6E8);
+}
+
+/* Animação suave para links */
+a {
+  transition: all 0.3s ease;
+}
+
+/* AJUSTE PARA A PAGINAÇÃO DO SWIPER */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem;
+}
+
+.swiper-pagination-bullet {
+  background: #FFD6E8 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #B8A7D9 !important;
+  opacity: 1;
+}
