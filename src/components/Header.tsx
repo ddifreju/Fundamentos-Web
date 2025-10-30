@@ -13,13 +13,13 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50">
+    <header className="fixed top-0 left-0 w-full bg-white/40 backdrop-blur-md border-b border-white/40 z-50">
       <div className="container mx-auto flex justify-between items-center p-4 text-white">
         {/* Seu Nome ou Logo */}
         <h1 className="text-xl font-bold">Juliana Freddi</h1>
 
         {/* Links de Navegação */}
-        <nav className="flex gap-8">
+        <nav className="flex gap-6 pr-4">
           {navLinks.map((link) => (
             <Link
               key={link.to}

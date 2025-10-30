@@ -10,7 +10,9 @@ type ProjectCardProps = {
 
 export function ProjectCard({ title, description, tags, liveUrl, githubUrl }: ProjectCardProps) {
   return (
-    <div className="bg-white/5 backdrop-blur-md p-6 rounded-lg border border-zinc-700 flex flex-col h-full transition-all duration-300 hover:border-yellow-500 hover:shadow-2xl text-center">
+    <div className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/60 shadow-[0_10px_40px_rgba(184,167,217,0.25)] 
+                flex flex-col h-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(184,167,217,0.35)] hover:-translate-y-1">
+
       
       <h3 className="text-2xl font-bold text-[#a78bfa] mb-3"> {/* Roxo/Lilás */}
         {title}
