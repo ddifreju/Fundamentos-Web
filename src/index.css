@@ -9,48 +9,27 @@
   box-sizing: border-box;
 }
 
-/* Fundo com “nuvens” em tons baby pink/blue */
+/* Fundo com imagem de nuvens fixa */
 body {
   font-family: 'Poppins', sans-serif;
-  background:
-    radial-gradient(1200px 600px at -10% 10%, #FFEFF7 0%, rgba(255, 239, 247, 0) 60%),
-    radial-gradient(900px 500px at 110% 0%, #EAF6FF 0%, rgba(234, 246, 255, 0) 65%),
-    radial-gradient(700px 400px at 20% 80%, #FFD6E8 0%, rgba(255, 214, 232, 0) 60%),
-    radial-gradient(800px 500px at 85% 85%, #C7EEFF 0%, rgba(199, 238, 255, 0) 60%),
-    linear-gradient(180deg, #F7FBFF 0%, #EAF6FF 100%);
-  background-attachment: fixed;
+  background-image: url('https://ik.imagekit.io/logoempregadev/Fundo%20site.png?updatedAt=1759104914726');
   background-size: cover;
-  animation: clouds 18s ease-in-out infinite alternate;
+  background-position: center;
+  background-attachment: fixed;   /* mantém as nuvens fixas enquanto rola */
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Movimento sutil das “nuvens” */
-@keyframes clouds {
-  0% {
-    background-position:
-      0% 0%,
-      100% 0%,
-      0% 100%,
-      100% 100%,
-      50% 50%;
-  }
-  100% {
-    background-position:
-      10% 5%,
-      90% 3%,
-      5% 95%,
-      95% 92%,
-      50% 52%;
-  }
-}
-/* Animação de gradiente para elementos específicos */
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Vignette sutil nas bordas da página */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 120% at 50% -10%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.05) 100%);
 }
+
 
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
@@ -76,6 +55,7 @@ a {
 }
 
 /* AJUSTE PARA A PAGINAÇÃO DO SWIPER */
+
 .swiper-pagination {
   position: relative !important;
   margin-top: 2rem;

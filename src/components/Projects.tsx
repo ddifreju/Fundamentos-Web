@@ -60,14 +60,23 @@ export function Projects() {
   return (
     <section id="projetos" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center text-[#0d9488] mb-4">
+        <h2
+          className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight"
+          style={{
+            background: 'linear-gradient(135deg, #8bd3dd, #0d9488)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
           Meus Projetos
         </h2>
+
         {/* Este parágrafo exibe o título do projeto ativo, centralizado */}
         <p className="text-xl text-center text-white mb-12">
           {activeProject?.title || "Selecione um projeto"} {/* Mostra o título ativo ou um texto padrão */}
         </p>
-        
+
         {/* CARROSSEL DE CARDS (AGORA É O PRINCIPAL) */}
         <div className="max-w-4xl mx-auto mb-12"> {/* Margem para separar do vídeo */}
           <Swiper
@@ -109,8 +118,7 @@ export function Projects() {
         {/* --- SECÇÃO DO VÍDEO (AGORA ABAIXO DOS CARDS, GRANDE E QUADRADO) --- */}
         {activeProject && (
           <div className="mt-16 max-w-4xl mx-auto transition-opacity duration-500">
-            {/* O título do vídeo já está acima, no <p> */}
-            <div className="w-full max-w-[550px] aspect-square mx-auto bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="w-full max-w-2xl aspect-video mx-auto bg-white/70 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl border border-white/60">
               {activeProject.videoUrl && activeProject.videoUrl.includes('youtube.com') ? (
                 <iframe
                   width="100%"
@@ -119,16 +127,18 @@ export function Projects() {
                   title={activeProject.title}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen>
-                </iframe>
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center bg-zinc-900">
                   <p className="text-zinc-400">Vídeo de demonstração indisponível.</p>
                 </div>
               )}
             </div>
           </div>
         )}
+
       </div>
     </section>
   )
