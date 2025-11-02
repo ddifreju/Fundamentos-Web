@@ -1,40 +1,81 @@
 // src/components/Header.tsx
 
-// Importamos o componente de Link da biblioteca react-scroll
 import { Link } from 'react-scroll';
+import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react'; // [!code ++]
 
-// Lista dos links do menu para facilitar a manutenção
 const navLinks = [
-  { to: 'hero', label: 'Início' },
-  { to: 'projetos', label: 'Projetos' },
-  { to: 'habilidades', label: 'Habilidades' },
-  { to: 'contato', label: 'Contato' },
+  { to: 'hero', label: 'Início' },
+  { to: 'projetos', label: 'Projetos' },
+  { to: 'habilidades', label: 'Habilidades' },
+  { to: 'contato', label: 'Contato' },
 ];
 
 export function Header() {
-  return (
-    <header className="fixed top-0 left-0 w-full bg-white/40 backdrop-blur-md border-b border-white/40 z-50">
-      <div className="container mx-auto flex justify-between items-center p-4 text-white">
-        {/* Seu Nome ou Logo */}
-        <h1 className="text-xl font-bold">Juliana Freddi</h1>
+  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // [!code ++]
 
-        {/* Links de Navegação */}
-        <nav className="flex gap-6 pr-4">
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all ${scrolled ? 'bg-white/60 backdrop-blur-xl shadow-[0_8px_30px_rgba(184,167,217,0.25)] border-b border-white/60' : 'bg-white/30 backdrop-blur-md border-b border-white/40'}`}>
+      <div className="container mx-auto flex justify-between items-center px-5 py-3">
+        <h1 className="text-xl font-extrabold font-poppins tracking-tight text-text-dark">Juliana Freddi</h1>
+
+        {/* --- NAVEGAÇÃO DESKTOP --- */}
+        <nav className="hidden md:flex gap-6"> {/* [!code alteration] */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              activeClass="text-accent-purple after:content-[''] after:block after:h-0.5 after:bg-accent-purple after:rounded-full after:mt-1"
+              className="cursor-pointer text-text-dark/80 hover:text-text-dark transition-colors font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* --- BOTÃO HAMBÚRGUER --- */}
+        <div className="md:hidden"> {/* [!code ++] */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-text-dark"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div> {/* [!code ++] */}
+
+      </div>
+
+      {/* --- MENU MOBILE (Dropdown) --- */}
+      {isMobileMenuOpen && (
+        <nav className="md:hidden flex flex-col items-center gap-4 py-4 border-t border-white/40"> {/* [!code ++] */}
           {navLinks.map((link) => (
             <Link
               key={link.to}
-              to={link.to} // ID da seção para onde rolar
-              spy={true} // Marca o link como ativo quando a seção está na tela
-              smooth={true} // Ativa a animação de rolagem suave
-              offset={-70} // Deslocamento para ajustar a posição final da rolagem
-              duration={500} // Duração da animação em milissegundos
-              className="cursor-pointer hover:text-yellow-400 transition-colors"
+              to={link.to}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              activeClass="text-accent-purple after:content-[''] after:block after:h-0.5 after:bg-accent-purple after:rounded-full after:mt-1"
+              className="cursor-pointer text-text-dark/80 hover:text-text-dark transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)} // Fecha o menu ao clicar
             >
               {link.label}
             </Link>
           ))}
         </nav>
-      </div>
-    </header>
-  );
+      )} {/* [!code ++] */}
+    </header>
+  );
 }

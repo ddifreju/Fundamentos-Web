@@ -1,9 +1,7 @@
-// src/components/Footer.tsx
-
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 
 export function Footer() {
-  // Pega o ano atual automaticamente para o copyright
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,7 +17,7 @@ export function Footer() {
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:scale-110 transition-transform text-accent-purple hover:text-text-dark"
+            className="hover:scale-110 transition-transform text-text-dark hover:text-black"
           >
             <GithubLogo size={32} />
           </a>
@@ -28,17 +26,17 @@ export function Footer() {
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:scale-110 transition-transform text-accent-purple hover:text-text-dark"
+            className="hover:scale-110 transition-transform text-text-dark hover:text-black"
           >
             <LinkedinLogo size={32} />
           </a>
         </div>
 
         {/* Texto de Copyright */}
-        <p className="text-sm">
+        <p className="text-sm hover:scale-110 transition-transform text-text-dark hover:text-black">
           &copy; {currentYear} Juliana Freddi. Todos os direitos reservados.
         </p>
-        <p className="hover:scale-110 transition-transform text-accent-purple hover:text-text-dark">
+        <p className="hover:scale-110 transition-transform text-text-dark hover:text-black">
           Feito com ❤️ usando React, TypeScript e Tailwind CSS.
         </p>
       </div>
