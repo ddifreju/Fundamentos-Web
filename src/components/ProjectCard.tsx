@@ -17,7 +17,7 @@ export function ProjectCard(props: ProjectCardProps) {
                  transition-all duration-300 will-change-transform
                  hover:shadow-[0_20px_60px_rgba(184,167,217,0.35)] hover:-translate-y-1"
     >
-      <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-700">
+      <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-700 text-center">
         {props.title}
       </h3>
 
