@@ -20,7 +20,7 @@ const projectData = [
   },
   {
     title: "Blog Pessoal",
-    description: "Um blog que desenvolvi para partilhar os meus conhecimentos...",
+    description: "Página de blog pessoal criado para aprimorar minhas habilidades em CRUD e em autenticação de login...",
     tags: ["React", "JavaScript", "CSS"],
     liveUrl: "https://teal-gingersnap-ad5909.netlify.app/",
     githubUrl: "https://github.com/ddifreju",
