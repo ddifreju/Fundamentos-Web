@@ -2,7 +2,7 @@
 
 Este é o repositório do meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e experiência como desenvolvedora Full-Stack. O projeto foi construído do zero com foco em criar uma experiência de utilizador moderna, interativa e visualmente atraente.
 
-**[Acesse a versão em produção (Deploy) aqui!](https://portfolio-theta-six-12.vercel.app/)**
+**[Acesse a versão em produção (Deploy) aqui!](hhttps://portfolio-jf-git-main-jus-projects-ccdd6f36.vercel.app/)**
 
 
 ## ✨ Visão Geral do Projeto
@@ -49,22 +49,22 @@ Para clonar e executar este projeto na sua máquina, siga os passos abaixo:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [URL_DO_SEU_REPOSITORIO_GIT]
+    git clone [https://github.com/ddifreju/Fundamentos-Web]
     ```
 
 2.  **Entre na pasta do projeto:**
     ```bash
-    cd nome-do-projeto
+    cd nome-da-pasta
     ```
 
-3.  **Instale as dependências (usando Yarn):**
+3.  **Instale as dependências (usando NPM):**
     ```bash
-    yarn
+    npm install
     ```
 
 4.  **Inicie o servidor de desenvolvimento:**
     ```bash
-    yarn dev
+    npm run dev
     ```
 
 5.  Abra [http://localhost:5173/](http://localhost:5173/) (ou a porta indicada no seu terminal) no seu navegador.
