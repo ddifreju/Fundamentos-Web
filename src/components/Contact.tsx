@@ -1,4 +1,3 @@
-// src/components/Contact.tsx
 import { PaperPlaneTilt, GithubLogo, LinkedinLogo, WhatsappLogo, Envelope, DownloadSimple } from "@phosphor-icons/react";
 
 export function Contact() {
@@ -9,7 +8,7 @@ export function Contact() {
 
           {/* Botões de ação rápida (Lado esquerdo) */}
           <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-2xl font-bold text-center text-teal-700">Entre em contato agora</h3>
+            <h3 className="text-2xl font-bold text-center text-purple-700">Entre em contato agora</h3>
             
             <div className="grid grid-cols-2 gap-4">
               <a
@@ -51,7 +50,7 @@ export function Contact() {
               </a>
 
               <a
-                href="https://caminhodoseuarquivo.pdf"
+                href="https://drive.google.com/file/d/1i1cz4BSrVhaDutH-4glMaMy-WPIHdvV6/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-4 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl shadow transition-all col-span-2"
@@ -66,14 +65,14 @@ export function Contact() {
           <div className="w-full max-w-lg">
             <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 shadow-[0_10px_40px_rgba(139,211,221,0.25)] border border-white/60">
               <form
-                action="https://formspree.io/f/YOUR_UNIQUE_ID"
+                action="https://formspree.io/f/xjkaykdk"
                 method="POST"
                 className="flex flex-col gap-5"
               >
                 <h2
                   className="text-4xl font-black text-center mb-4 font-poppins tracking-tight"
                   style={{
-                    background: 'linear-gradient(135deg, #8bd3dd, #0d9488)',
+                    background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',

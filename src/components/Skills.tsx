@@ -1,5 +1,3 @@
-// src/components/Skills.tsx
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -39,7 +37,7 @@ export function Skills() {
         <h2
           className="text-5xl md:text-6xl font-black text-center mb-12 font-poppins tracking-tight"
           style={{
-            background: 'linear-gradient(135deg, #8bd3dd, #0d9488)',
+            background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -62,7 +60,7 @@ export function Skills() {
               768: { slidesPerView: 4 },
               1024: { slidesPerView: 5 },
             }}
-            className="w-full"
+            className="w-full py-4"
           >
             {skillsData.map((skill, idx) => (
               <SwiperSlide key={skill.name}>
@@ -75,16 +73,6 @@ export function Skills() {
                              animate-[float_4s_ease-in-out_infinite]"
                   style={{ animationDelay: `${(idx % 4) * 0.2}s` }}
                 >
-                  {/* Orbe colorido atrás do ícone */}
-                  <span
-                    className="absolute -z-10 w-24 h-24 rounded-full blur-xl opacity-60"
-                    style={{
-                      background:
-                        idx % 2 === 0
-                          ? 'radial-gradient(circle, rgba(255,214,232,0.9) 0%, rgba(255,214,232,0) 70%)'
-                          : 'radial-gradient(circle, rgba(199,238,255,0.9) 0%, rgba(199,238,255,0) 70%)',
-                    }}
-                  />
 
                   {/* Ícone com brilho no hover */}
                   <div className="relative">

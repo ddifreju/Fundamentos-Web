@@ -1,4 +1,3 @@
-// src/components/About.tsx
 import { Sparkle, Heart, Code } from '@phosphor-icons/react';
 
 export function About() {
@@ -8,7 +7,7 @@ export function About() {
         <h2
           className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight"
           style={{
-            background: 'linear-gradient(135deg, #8bd3dd, #0d9488)',
+            background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
