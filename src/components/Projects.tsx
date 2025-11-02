@@ -79,7 +79,7 @@ export function Projects() {
         </h2>
 
         {/* --- 1. CARROSSEL (SWIPER) --- */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-6xl mx-auto mb-12">
           <Swiper
             onSlideChange={handleSlideChange}
             effect={'coverflow'}
@@ -112,29 +112,8 @@ export function Projects() {
           </Swiper>
         </div>
 
-        {/* --- 2. INFORMAÇÕES DO PROJETO ATIVO --- */}
-        {activeProject && (
-          <div className="text-center max-w-2xl mx-auto -mt-4 mb-12 px-4 transition-opacity duration-300">
-            <h3
-              className="text-3xl font-bold mb-3"
-              style={{ color: '#7e22ce' }} // Cor roxa do seu gradiente
-            >
-              {activeProject.title}
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {activeProject.tags.map(tag => (
-                <span
-                  key={tag}
-                  className="bg-pink-100 text-pink-700 text-xs font-semibold px-3 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
 
-        {/* --- 3. MODAL (CARD EXPANDIDO) --- */}
+        {/* --- MODAL (CARD EXPANDIDO) --- */}
         {expandedProject && (
           <>
             <div
@@ -155,7 +134,7 @@ export function Projects() {
 
               <div className="flex h-full flex-col">
 
-                {/* O CONTEÚDO (FAIXA BRANCA PEQUENA) VEM PRIMEIRO */}
+                {/* FAIXA BRANCA PEQUENA */}
                 <div className="content-container">
                   {/* Layout para Título e Stacks Lado a Lado */}
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
@@ -163,10 +142,10 @@ export function Projects() {
                       {expandedProject.title}
                     </h3>
                     <div className="flex overflow-x-auto gap-2">
-                      s            	      {expandedProject.tags.map(tag => (
+                      {expandedProject.tags.map(tag => (
                         <span key={tag} className="flex-shrink-0 bg-pink-100 text-pink-700 text-xs font-semibold px-3 py-1 rounded-full m-1">
                           {tag}
-                          g       </span>
+                        </span>
                       ))}
                     </div>
                   </div>
