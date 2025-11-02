@@ -1,20 +1,14 @@
-// src/components/Projects.tsx
-
 import { useState } from 'react';
 import { ProjectCard } from "./ProjectCard";
-import { GithubLogo } from "@phosphor-icons/react"; // Importado para o Modal
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
-import type { Swiper as SwiperClass } from 'swiper';
+import { EffectCoverflow, Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-// CSS do Swiper
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Dados do Projeto
 const projectData = [
   {
     title: "DevLivery",
@@ -45,21 +39,19 @@ const projectData = [
 type Project = typeof projectData[0];
 
 export function Projects() {
-  const [activeProject, setActiveProject] = useState<Project | null>(projectData[0]);
-  const [expandedProject, setExpandedProject] = useState<Project | null>(null); // Estado que controla o modal
+  const [expandedProject, setExpandedProject] = useState<Project | null>(null);
+  const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
 
-  const handleSlideChange = (swiper: SwiperClass) => {
-    const currentIndex = swiper.realIndex;
-    setActiveProject(projectData[currentIndex]);
-  };
-
-  // Função para converter URLs do YouTube
   const getEmbedUrl = (url: string) => {
     let embedUrl = url.replace('/watch?v=', '/embed/');
     embedUrl = embedUrl.replace('youtu.be/', 'www.youtube.com/embed/');
     const separator = embedUrl.includes('?') ? '&' : '?';
     return `${embedUrl}${separator}autoplay=1&mute=1`;
   };
+
+  // const total = projectData.length;
+  const duplicatedProjects = [...projectData, ...projectData];
+
 
   return (
     <section id="projetos" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -76,54 +68,78 @@ export function Projects() {
           Meus Projetos
         </h2>
 
-        {/* --- 1. CARROSSEL (SWIPER) --- */}
         <div className="max-w-6xl mx-auto mb-12">
           <Swiper
-            onSlideChange={handleSlideChange}
-            effect={'coverflow'}
-            grabCursor={true}
+            effect="coverflow"
             centeredSlides={true}
-            slidesPerView={'auto'}
-            loop={true} // Garante a rolagem infinita
+            grabCursor={true}
+            slidesPerView={3}
+            spaceBetween={80}
+            // Loop infinito suave
+            loop={false}
+            rewind={true}
+            loopAdditionalSlides={projectData.length * 6} // buffer grande de clones
+            speed={900}
+            resistanceRatio={0.85}
+            watchSlidesProgress={true}
             coverflowEffect={{
-              rotate: 50,
+              rotate: 40,
               stretch: 0,
-              depth: 100,
+              depth: 120,
               modifier: 1,
-              slideShadows: false, // Remove as "sombras esquisitas"
+              slideShadows: true,
             }}
+            autoplay={
+              autoPlayEnabled
+                ? {
+                  delay: 2500,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }
+                : false
+            }
             pagination={{ clickable: true }}
             navigation={true}
-            modules={[EffectCoverflow, Pagination, Navigation]}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
             className="w-full"
           >
-            {projectData.map(project => (
-              <SwiperSlide key={project.title} style={{ width: '300px', height: 'auto' }}>
+            {duplicatedProjects.map((project  ) => (
+              <SwiperSlide key={project.title} style={{ width: 300, height: 'auto' }}>
+                
                 <div className="h-full py-4">
                   <ProjectCard
                     {...project}
-                    onExpandClick={() => setExpandedProject(project)}
+                    
+                    onExpandClick={() => {
+                      setExpandedProject(project);
+                      setAutoPlayEnabled(false);
+                    }}
                   />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
+
+
         </div>
 
-        {/* --- 2. MODAL (CARD EXPANDIDO) --- */}
-        {/* Isto agora existe FORA do Swiper, por isso não vai "quebrar" o layout */}
         {expandedProject && (
           <>
             <div
               className="card-expand-overlay"
               style={{ display: 'block' }}
-              onClick={() => setExpandedProject(null)}
+              onClick={() => {
+                setExpandedProject(null);
+                setAutoPlayEnabled(true);
+              }}
             />
-
             <div className="card-expanded-content">
               <button
                 className="expand-button"
-                onClick={() => setExpandedProject(null)}
+                onClick={() => {
+                  setExpandedProject(null);
+                  setAutoPlayEnabled(true);
+                }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -131,7 +147,6 @@ export function Projects() {
               </button>
 
               <div className="flex h-full flex-col">
-                {/* FAIXA BRANCA PEQUENA */}
                 <div className="content-container">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <h3 className="text-xl lg:text-2xl font-bold text-teal-700 mb-2 lg:mb-0">
@@ -139,7 +154,7 @@ export function Projects() {
                     </h3>
                     <div className="flex overflow-x-auto gap-2">
                       {expandedProject.tags.map(tag => (
-                        <span key={tag} className="flex-shrink-0 bg-pink-100 text-pink-700 text-xs font-semibold px-3 py-1 rounded-full m-1">
+                        <span key={tag} className="flex-shrink-0 bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full m-1">
                           {tag}
                         </span>
                       ))}
@@ -147,7 +162,6 @@ export function Projects() {
                   </div>
                 </div>
 
-                {/* VÍDEO OCUPA O RESTO DO ESPAÇO */}
                 <div className="video-container">
                   <iframe
                     width="100%"

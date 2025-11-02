@@ -7,12 +7,11 @@ type ProjectCardProps = {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  onExpandClick: () => void; // Prop para ativar a expansão
+  onExpandClick: () => void;
 }
 
 export function ProjectCard(props: ProjectCardProps) {
   return (
-    // Borda rosa removida
     <div
       className="group bg-white/70 backdrop-blur-xl p-6 rounded-3xl
                  shadow-[0_10px_40px_rgba(184,167,217,0.25)] flex flex-col h-full
@@ -23,7 +22,7 @@ export function ProjectCard(props: ProjectCardProps) {
         {props.title}
       </h3>
 
-      <p className="text-text-dark/80 flex-grow mb-4 text-center">
+      <p className="text-zinc-700 flex-grow mb-4 text-center">
         {props.description}
       </p>
 
@@ -31,7 +30,7 @@ export function ProjectCard(props: ProjectCardProps) {
         {props.tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs font-semibold px-3 py-1 rounded-full m-1 bg-cloud-blue/60 text-text-dark group-hover:shadow-md transition-shadow"
+            className="text-xs font-semibold px-3 py-1 rounded-full m-1 bg-teal-100 text-teal-800 group-hover:shadow-md transition-shadow"
           >
             {tag}
           </span>
@@ -44,7 +43,7 @@ export function ProjectCard(props: ProjectCardProps) {
             href={props.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-text-dark hover:text-teal-600 hover:underline transition-colors"
+            className="flex items-center gap-2 text-zinc-700 hover:text-teal-600 hover:underline transition-colors"
           >
             <GithubLogo size={20} weight="bold" />
             Código Fonte
@@ -52,7 +51,6 @@ export function ProjectCard(props: ProjectCardProps) {
         )}
       </div>
 
-      {/* Botão "Ver mais" que ativa o Modal */}
       <button
         onClick={props.onExpandClick}
         className="mt-4 w-full py-2 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition"
