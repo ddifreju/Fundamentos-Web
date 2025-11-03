@@ -18,7 +18,7 @@ export function ProjectCard(props: ProjectCardProps) {
                  transition-all duration-300 will-change-transform
                  hover:shadow-[0_20px_60px_rgba(184,167,217,0.35)] hover:-translate-y-1"
     >
-      <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-700 text-center">
+      <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-slate-400 to-slate-800 text-center">
         {props.title}
       </h3>
 
@@ -30,7 +30,7 @@ export function ProjectCard(props: ProjectCardProps) {
         {props.tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs font-semibold px-3 py-1 rounded-full m-1 bg-teal-100 text-teal-800 group-hover:shadow-md transition-shadow"
+            className="text-xs font-semibold px-3 py-1 rounded-full m-1 bg-teal-100 text-sky-800 group-hover:shadow-md transition-shadow"
           >
             {tag}
           </span>
@@ -45,6 +45,7 @@ export function ProjectCard(props: ProjectCardProps) {
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-zinc-700 hover:text-teal-600 hover:underline transition-colors"
           >
+            
             <GithubLogo size={20} weight="bold" />
             Código Fonte
           </a>
@@ -53,7 +54,11 @@ export function ProjectCard(props: ProjectCardProps) {
 
       <button
         onClick={props.onExpandClick}
-        className="mt-4 w-full py-2 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition"
+        className="mt-20 w-full py-2 text-slate-600 font-semibold 
+           bg-gradient-to-r from-baby-pink/90 via-accent-purple to-baby-blue/90
+           shadow-lg shadow-baby-pink/50 hover:shadow-accent-purple/50
+           transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110
+           rounded-full"
       >
         Ver mais sobre o projeto
       </button>

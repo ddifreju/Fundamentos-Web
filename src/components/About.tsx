@@ -53,12 +53,12 @@ export function About() {
             </div>
 
             <p className="text-lg text-text-dark/85 leading-relaxed font-nunito">
-              Desenvolvedora Full-Stack apaixonada por criar experiências digitais elegantes e funcionais.
+              Desenvolvedora Full-Stack apaixonada por criar experiências digitais modernas e funcionais.
               Código limpo, design intuitivo e muito carinho nos detalhes.
             </p>
 
             <p className="text-lg text-text-dark/85 leading-relaxed font-nunito">
-              Experiência com <span className="font-semibold text-accent-purple">React, TypeScript e Node.js</span>.
+              Experiência com <span className="font-semibold text-purple-500">React, TypeScript e Node.js</span>.
               Amo transformar ideias em produtos reais.
             </p>
 
@@ -73,7 +73,7 @@ export function About() {
               </div>
               <div className="text-center bg-baby-pink/30 p-4 rounded-2xl animate-[float_5.2s_ease-in-out_infinite_0.8s]">
                 <p className="text-3xl font-black text-accent-purple font-poppins">∞</p>
-                <p className="text-sm text-text-dark font-nunito">Café</p>
+                <p className="text-sm text-text-dark font-nunito">Educação</p>
               </div>
             </div>
           </div>

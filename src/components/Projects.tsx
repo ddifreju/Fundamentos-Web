@@ -12,26 +12,30 @@ import 'swiper/css/pagination';
 const projectData = [
   {
     title: "DevLivery",
-    description: "Uma aplicação web completa para um serviço de delivery local...",
-    tags: ["React", "TypeScript", "Node.js", "TailwindCSS"],
-    liveUrl: "https://dev-livery-front.vercel.app/login",
-    githubUrl: "https://github.com/ddifreju",
+    description: "Uma aplicação web completa para um serviço de delivery de alimentos, feita em equipe para a conclusão do bootcamp de desenvolvimento fullstack.",
+    tags: ["React", "TypeScript", "Node.js", "Tailwind CSS", "PostgreSQL"],
+    githubUrl: "https://github.com/Grupo-06-Turma-JavaScript-07/Devlivery",
     videoUrl: "https://www.youtube.com/watch?v=eHUuTQ0760c"
   },
   {
     title: "Blog Pessoal",
-    description: "Página de blog pessoal criado para aprimorar minhas habilidades em CRUD e em autenticação de login...",
-    tags: ["React", "JavaScript", "CSS"],
-    liveUrl: "https://teal-gingersnap-ad5909.netlify.app/",
-    githubUrl: "https://github.com/ddifreju",
+    description: "Página de blog pessoal criado para aprimorar minhas habilidades em CRUD e em autenticação de login.",
+    tags: ["React", "JavaScript", "CSS", "JWT", "Node.js"],
+    githubUrl: "https://github.com/ddifreju/blogpessoal",
     videoUrl: "https://www.youtube.com/watch?v=PBGV_Dyp2CA"
   },
   {
-    title: "Monitoramento Fitness",
-    description: "Uma plataforma para utilizadores acompanharem os seus treinos...",
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://teal-gingersnap-ad5909.netlify.app/",
-    githubUrl: "https://github.com/ddifreju",
+    title: "FitHub",
+    description: "Uma plataforma para utilizadores acompanharem os seus treinos e personal trainers gerenciarem seus alunos, feita em grupo.",
+    tags: ["HTML", "Node.js", "Nest.js", "React", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/Grupo-06-Turma-JavaScript-07/FrontFitHub",
+    videoUrl: "https://www.youtube.com/watch?v=eHUuTQ0760c"
+  },
+  {
+    title: "Portfolio Dev",
+    description: "Site portfolio pessoal para apresentar meus projetos e habilidades como desenvolvedora full-stack.",
+    tags: ["HTML", "CSS", "React", "Tailwind", "JavaScript"],
+    githubUrl: "https://github.com/ddifreju/Fundamentos-Web",
     videoUrl: "https://www.youtube.com/watch?v=eHUuTQ0760c"
   }
 ];
@@ -75,8 +79,9 @@ export function Projects() {
             grabCursor
             centeredSlides
             loop
-            autoplay={autoPlayEnabled ? { delay: 3000, disableOnInteraction: false } : false}
+            autoplay={autoPlayEnabled ? { delay: 9000, disableOnInteraction: false } : false}
             slidesPerView={3}
+            spaceBetween={0}
             coverflowEffect={{
               rotate: 30,
               stretch: 0,
@@ -140,12 +145,12 @@ export function Projects() {
               <div className="flex h-full flex-col">
                 <div className="content-container">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                    <h3 className="text-xl lg:text-2xl font-bold text-teal-700 mb-2 lg:mb-0">
+                    <h3 className="text-xl lg:text-2xl font-bold text-sky-500 mb-2 lg:mb-0">
                       {expandedProject.title}
                     </h3>
                     <div className="flex overflow-x-auto gap-2">
                       {expandedProject.tags.map(tag => (
-                        <span key={tag} className="flex-shrink-0 bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full m-1">
+                        <span key={tag} className="flex-shrink-0 bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded-full m-1">
                           {tag}
                         </span>
                       ))}

@@ -1,25 +1,30 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaFigma, FaDocker } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss } from 'react-icons/si';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 type Skill = {
   name: string;
-  iconUrl: string;
+  icon: React.ReactNode;
+  color?: string;
   href: string;
 };
 
 const skillsData: Skill[] = [
-  { name: 'HTML', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/html-5.png?updatedAt=1761786826701', href: 'https://developer.mozilla.org/docs/Web/HTML' },
-  { name: 'CSS', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/logo%20css_1Viu1pDNYY?updatedAt=1761786668191', href: 'https://developer.mozilla.org/docs/Web/CSS' },
-  { name: 'JavaScript', iconUrl: 'https://ik.imagekit.io/logoempregadev/image(3).png?updatedAt=1761785892657', href: 'https://developer.mozilla.org/docs/Web/JavaScript' },
-  { name: 'TypeScript', iconUrl: 'https://ik.imagekit.io/logoempregadev/image(4).png?updatedAt=1761785892306', href: 'https://www.typescriptlang.org/' },
-  { name: 'React', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/log%20react_TbRYSbTfR?updatedAt=1761786528362', href: 'https://react.dev/' },
-  { name: 'Tailwind CSS', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/image.png?updatedAt=1761786910253', href: 'https://tailwindcss.com/' },
-  { name: 'Node.js', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/image.png?updatedAt=1761786959341', href: 'https://nodejs.org/' },
-  { name: 'Figma', iconUrl: 'https://ik.imagekit.io/logoempregadev/Portfolio/image.png?updatedAt=1761787047149', href: 'https://www.figma.com/' },
+  { name: 'HTML', icon: <FaHtml5 />, href: 'https://developer.mozilla.org/docs/Web/HTML', color: 'text-orange-500' },
+  { name: 'CSS', icon: <FaCss3Alt />, href: 'https://developer.mozilla.org/docs/Web/CSS', color: 'text-blue-500' },
+  { name: 'JavaScript', icon: <FaJs />, href: 'https://developer.mozilla.org/docs/Web/JavaScript', color: 'text-yellow-400' },
+  { name: 'TypeScript', icon: <SiTypescript />, href: 'https://www.typescriptlang.org/', color: 'text-blue-600' },
+  { name: 'React', icon: <FaReact />, href: 'https://react.dev/', color: 'text-cyan-400' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, href: 'https://tailwindcss.com/', color: 'text-cyan-500' },
+  { name: 'Node.js', icon: <FaNodeJs />, href: 'https://nodejs.org/', color: 'text-green-500' },
+  { name: 'Figma', icon: <FaFigma />, href: 'https://www.figma.com/', color: 'text-pink-500' },
+  { name: 'Docker', icon: <FaDocker />, href: 'https://www.docker.com/', color: 'text-blue-500' },
 ];
 
 export function Skills() {
@@ -29,7 +34,7 @@ export function Skills() {
 
         {/* Título com badge */}
         <div className="text-center mb-6">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest bg-white/60 border border-white/70 rounded-full px-3 py-1 text-text-dark/70">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest bg-white/60 border border-white/70 rounded-full px-3 py-1 text-zinc-600">
             Tech Stack
           </span>
         </div>
@@ -75,19 +80,16 @@ export function Skills() {
                 >
 
                   {/* Ícone com brilho no hover */}
-                  <div className="relative">
-                    <img
-                      src={skill.iconUrl}
-                      alt={`Logo ${skill.name}`}
-                      className="w-20 h-20 drop-shadow"
-                      loading="lazy"
-                    />
+                  <div className="relative text-7xl">
+                    <div className={`transition-colors duration-300 ${skill.color}`}>
+                      {skill.icon}
+                    </div>
                     <span className="pointer-events-none absolute inset-0 rounded-full opacity-0
                                      group-hover:opacity-100 transition-opacity" />
                   </div>
 
                   {/* Nome da skill */}
-                  <span className="font-semibold text-text-dark">{skill.name}</span>
+                  <span className="font-semibold text-zinc-700">{skill.name}</span>
                 </a>
               </SwiperSlide>
             ))}
