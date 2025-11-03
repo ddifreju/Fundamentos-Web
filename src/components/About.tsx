@@ -5,7 +5,7 @@ export function About() {
     <section id="sobre" className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
       <div className="container mx-auto">
         <h2
-          className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight"
+          className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight title-shadow"
           style={{
             background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
             WebkitBackgroundClip: 'text',

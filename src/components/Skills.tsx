@@ -35,7 +35,7 @@ export function Skills() {
         </div>
 
         <h2
-          className="text-5xl md:text-6xl font-black text-center mb-12 font-poppins tracking-tight"
+          className="text-5xl md:text-6xl font-black text-center mb-12 font-poppins tracking-tight title-shadow"
           style={{
             background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
             WebkitBackgroundClip: 'text',

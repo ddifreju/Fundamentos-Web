@@ -8,7 +8,7 @@ export function Contact() {
 
           {/* Botões de ação rápida (Lado esquerdo) */}
           <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-2xl font-bold text-center text-purple-700">Entre em contato agora</h3>
+            <h3 className="text-2xl font-bold text-center title-shadow text-purple-700">Entre em contato agora</h3>
             
             <div className="grid grid-cols-2 gap-4">
               <a
@@ -70,7 +70,7 @@ export function Contact() {
                 className="flex flex-col gap-5"
               >
                 <h2
-                  className="text-4xl font-black text-center mb-4 font-poppins tracking-tight"
+                  className="text-4xl font-black text-center mb-4 font-poppins title-shadow tracking-tight"
                   style={{
                     background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
                     WebkitBackgroundClip: 'text',

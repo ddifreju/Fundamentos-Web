@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <div id="hero" className="min-h-screen pt-24 flex flex-col justify-center items-center text-center p-4 md:p-8">
       <h1
-        className="text-4xl sm:text-5xl md:text-7xl font-black text-center font-poppins tracking-tight"
+        className="text-4xl sm:text-5xl md:text-7xl font-black text-center font-poppins tracking-tight title-shadow"
         style={{
           background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
           WebkitBackgroundClip: 'text',
@@ -18,9 +18,10 @@ export function Hero() {
       <div className="mt-3 text-md sm:text-lg md:text-2xl text-purple-900 font-poppins">
         <TypeAnimation
           sequence={[
-            'Desenvolvedora Full-Stack Criativa', 1400,
-            'Criando experiências elegantes', 1400,
-            'Construindo o futuro da Web', 1400,
+            'Desenvolvedora Full-Stack', 1400,
+            'Crio sites e landing pages', 1400,
+            'Conheça meu trabalho', 1400,
+            'Vamos construir algo incrível juntos!', 1400,
           ]}
           repeat={Infinity}
           speed={40}
@@ -29,7 +30,8 @@ export function Hero() {
       </div>
 
       <p className="mt-6 max-w-2xl text-text-dark/100 font-nunito">
-        Explore projetos e veja como ideias complexas viram experiências digitais elegantes, eficientes e fofas.
+        Me preocupo em entender exatamente o que você precisa para entregar soluções sob medida.
+        Explore meus projetos e veja experiências digitais eficientes.
       </p>
 
       <div className="mt-8 flex flex-col sm:flex-row gap-4">

@@ -57,7 +57,7 @@ export function Projects() {
     <section id="projetos" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <h2
-          className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight"
+          className="text-5xl md:text-6xl font-black text-center mb-16 font-poppins tracking-tight title-shadow"
           style={{
             background: 'linear-gradient(135deg, #ec4899, #7e22ce)',
             WebkitBackgroundClip: 'text',
@@ -70,46 +70,37 @@ export function Projects() {
 
         <div className="max-w-6xl mx-auto mb-12">
           <Swiper
+            modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
             effect="coverflow"
-            centeredSlides={true}
-            grabCursor={true}
+            grabCursor
+            centeredSlides
+            loop
+            autoplay={autoPlayEnabled ? { delay: 3000, disableOnInteraction: false } : false}
             slidesPerView={3}
-            spaceBetween={80}
-            // Loop infinito suave
-            loop={false}
-            rewind={true}
-            loopAdditionalSlides={projectData.length * 6} // buffer grande de clones
-            speed={900}
-            resistanceRatio={0.85}
-            watchSlidesProgress={true}
             coverflowEffect={{
-              rotate: 40,
+              rotate: 30,
               stretch: 0,
-              depth: 120,
+              depth: 100,
               modifier: 1,
-              slideShadows: true,
+              slideShadows: true
             }}
-            autoplay={
-              autoPlayEnabled
-                ? {
-                  delay: 2500,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }
-                : false
-            }
+            breakpoints={{
+              0: { slidesPerView: 1, coverflowEffect: { depth: 150, rotate: 25 } },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            navigation
             pagination={{ clickable: true }}
-            navigation={true}
-            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full"
+            className="w-full overflow-hidden"
           >
-            {duplicatedProjects.map((project  ) => (
+
+            {duplicatedProjects.map((project) => (
               <SwiperSlide key={project.title} style={{ width: 300, height: 'auto' }}>
-                
+
                 <div className="h-full py-4">
                   <ProjectCard
                     {...project}
-                    
+
                     onExpandClick={() => {
                       setExpandedProject(project);
                       setAutoPlayEnabled(false);
